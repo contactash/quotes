@@ -6,11 +6,63 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Ash Pat",
   "license": "ISC",
+  "scripts": {
+    "prestart": "echo \"Starting Application\"",
+    "start": "webpack-dev-server  --progress --colors --watch",
+    "clean": "rimraf dist/bundle.js && rimraf dist/bundle.js.gz && rimraf dist/style.css",
+    "build": "npm run clean && webpack",
+    "prod": "npm run build && npm start -- --compress",
+    "dev": "npm run build && npm start",
+    "start:prod": "cross-env NODE_ENV=\"production\" npm run prod ",
+    "start:dev": "cross-env NODE_ENV=\"development\" npm run dev ",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch",
+    "test:coverage": "npm run test -- --coverage"
+  },
+
   "devDependencies": {
-    "co": "^4.6.0",
+      "co": "^4.6.0",
     "cors": "^2.8.1",
     "node-fetch": "^1.6.3"
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-react-intl": "^2.3.1",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-2": "^6.13.0",
+    "bootstrap-sass": "^3.3.7",
+    "color": "^1.0.3",
+    "compression-webpack-plugin": "^0.3.2",
+    "cross-env": "^3.2.3",
+    "css-loader": "^0.23.1",
+    "enzyme": "^2.7.1",
+    "eslint": "^3.17.1",
+    "eslint-loader": "^1.6.3",
+    "eslint-plugin-jest": "^19.0.1",
+    "eslint-plugin-react": "^6.10.0",
+    "extract-text-webpack-plugin": "^2.0.0",
+    "jest": "^19.0.0",
+    "node-sass": "^4.5.0",
+    "react": "^15.4.2",
+    "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-intl": "^2.2.3",
+    "react-router-dom": "4.0.0-beta.8",
+    "react-test-renderer": "^15.4.2",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.2",
+    "uglifyjs-webpack-plugin": "^0.2.1",
+    "webpack": "^2.1.0-beta.25",
+    "webpack-dev-server": "^2.1.0-beta.0"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-intl": "^2.2.3",
+    "react-router-dom": "4.0.0-beta.8"
   }
 }
